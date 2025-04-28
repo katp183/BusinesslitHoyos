@@ -261,6 +261,12 @@ if( $q==0 ||  $q<=$product->inventary_min){
                 <li><a href="./?view=dev">Devolucion</a></li>
                 <li><a href="./?view=trasps">Traspasos</a></li>
                 <li><a href="./?view=devs">Devoluciones</a></li>
+                <!-- Aquí agregamos el módulo de Mermas -->
+    <li class="treeview <?php if(isset($_GET["view"]) && ($_GET["view"]=="mermas"||$_GET["view"]=="addmerma")){ echo "active"; }?>">
+      <a href="#"><i class='fa fa-exclamation-triangle'></i> <span>Mermas</span> <i class="fa fa-angle-left pull-right"></i></a>
+      <ul class="treeview-menu">
+        <li><a href="./?view=mermas">Registro</a></li>
+        <li><a href="./?view=addmerma">Nueva Merma</a></li>     
               <?php endif; ?>
               </ul>
             </li>
