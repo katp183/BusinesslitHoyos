@@ -19,7 +19,9 @@ session_start();
 // si quieres que se muestre las consultas SQL debes decomentar la siguiente linea
 // Core::$debug_sql = true;
 
+//MEnsaje de prueba
 $lb = new Lb();
 $lb->start();
 
 ?>
+
