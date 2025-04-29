@@ -265,7 +265,7 @@ if( $q==0 ||  $q<=$product->inventary_min){
     <li class="treeview <?php if(isset($_GET["view"]) && ($_GET["view"]=="mermas"||$_GET["view"]=="addmerma")){ echo "active"; }?>">
       <a href="#"><i class='fa fa-exclamation-triangle'></i> <span>Mermas</span> <i class="fa fa-angle-left pull-right"></i></a>
       <ul class="treeview-menu">
-        <li><a href="./?view=mermas">Registro</a></li>
+  <!-- crearemos la seccion mermas, y se creara en el archivo addmerma la logica de su uso -->
         <li><a href="./?view=addmerma">Nueva Merma</a></li>     
               <?php endif; ?>
               </ul>
