@@ -1,28 +1,28 @@
 <?php
-// addmerma.php
+// addmerma-view.php
 
 // Verificar si se envió el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Conexión a base de datos (ajusta tus credenciales si es necesario)
-    include "conexion.php"; // Asegúrate que tengas un archivo de conexión a tu DB
+    // Conexión a la base de datos utilizando tu sistema de conexión
+    $con = Database::getCon();
 
     $cantidad = $_POST['cantidad'];
     $categoria = $_POST['categoria'];
     $fecha = $_POST['fecha'];
     $motivo = $_POST['motivo'];
-    $almacen_id = $_POST['almacen_id']; // Puedes adaptar si quieres que el usuario seleccione o sea automático.
+    $almacen_id = $_POST['almacen_id'];
 
     // Insertar en la base de datos
     $sql = "INSERT INTO mermas (cantidad, categoria, fecha, motivo, almacen_id) 
             VALUES ('$cantidad', '$categoria', '$fecha', '$motivo', '$almacen_id')";
 
-    if (mysqli_query($conexion, $sql)) {
+    if (mysqli_query($con, $sql)) {
         echo "<div class='alert alert-success'>¡Merma registrada exitosamente!</div>";
     } else {
-        echo "<div class='alert alert-danger'>Error al registrar la merma: " . mysqli_error($conexion) . "</div>";
+        echo "<div class='alert alert-danger'>Error al registrar la merma: " . mysqli_error($con) . "</div>";
     }
 
-    mysqli_close($conexion);
+    mysqli_close($con);
 }
 ?>
 
