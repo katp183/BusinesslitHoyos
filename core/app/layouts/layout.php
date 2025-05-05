@@ -261,15 +261,26 @@ if( $q==0 ||  $q<=$product->inventary_min){
                 <li><a href="./?view=dev">Devolucion</a></li>
                 <li><a href="./?view=trasps">Traspasos</a></li>
                 <li><a href="./?view=devs">Devoluciones</a></li>
+
+
+
                 <!-- Aquí agregamos el módulo de Mermas -->
-    <li class="treeview <?php if(isset($_GET["view"]) && ($_GET["view"]=="mermas"||$_GET["view"]=="addmerma")){ echo "active"; }?>">
-      <a href="#"><i class='fa fa-exclamation-triangle'></i> <span>Mermas</span> <i class="fa fa-angle-left pull-right"></i></a>
+                 
+                <li class="treeview <?php if(isset($_GET["view"]) && in_array($_GET["view"],["addmerma","graficomerma"])) echo "active"; ?>">
+      <a href="#"><i class='fa fa-exclamation-triangle'></i> <span>Mermas</span>
+        <i class="fa fa-angle-left pull-right"></i>
+      </a>
       <ul class="treeview-menu">
-  <!-- crearemos la seccion mermas, y se creara en el archivo addmerma la logica de su uso -->
-        <li><a href="./?view=addmerma">Nueva Merma</a></li>     
-              <?php endif; ?>
-              </ul>
-            </li>
+        <li class="<?php if($_GET["view"]=="addmerma") echo "active"; ?>">
+          <a href="./?view=addmerma">Nueva Merma</a>
+        </li>
+        <li class="<?php if($_GET["view"]=="graficomerma") echo "active"; ?>">
+          <a href="./?view=graficomerma">Gráfico Mermas</a>
+        </li>
+      </ul>
+    </li>
+ <!-- Aquí agregamos el módulo de Mermas -->
+ <?php endif; ?>
             <?php if(Core::$user->kind==1):?>
                         <li class="treeview <?php if(isset($_GET["view"]) && ($_GET["view"]=="inventorylog"||$_GET["view"]=="sellsbycat" ||$_GET["view"]=="sellreports"||$_GET["view"]=="resreport"||$_GET["view"]=="paymentreport"||$_GET["view"]=="paymentreport"||$_GET["view"]=="clientreports"||$_GET["view"]=="vendorreports"||$_GET["view"]=="popularproductsreport")){ echo "active"; }?>">
               <a href="#"><i class='fa fa-file-text-o'></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i></a>
